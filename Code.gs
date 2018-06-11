@@ -1,7 +1,10 @@
-var token = YOUR_BOT_TOKEN; 
+// Make sure you update the following three values. Don't change any other part of the code, unless you know what your're doing.
+// Refer to https://github.com/alialavia/GoogleSheetTelegram to learn how to use this code.
+var botToken = "YOUR_BOT_TOKEN"; 
+var ssId = "SSID_OF_THE_SPREADSHEET";
+var webAppUrl = "THIS_WEBAPP_URL";
+
 var telegramUrl = "https://api.telegram.org/bot" + token;
-var webAppUrl = THIS_WEBAPP_URL;
-var ssId = SSID_OF_THE_SPREADSHEET;
 
 /* REST HELPERS */
 function getMe() {
