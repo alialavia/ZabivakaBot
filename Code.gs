@@ -4,7 +4,7 @@ var botToken = "YOUR_BOT_TOKEN";
 var ssId = "SSID_OF_THE_SPREADSHEET";
 var webAppUrl = "THIS_WEBAPP_URL";
 
-var telegramUrl = "https://api.telegram.org/bot" + token;
+var telegramUrl = "https://api.telegram.org/bot" + botToken;
 
 /* REST HELPERS */
 function getMe() {
