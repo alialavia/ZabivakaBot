@@ -1,5 +1,5 @@
 # ZabivakaBot
-Google Sheet Telegram bot integration, for predicting association footbal (soccer) games. Create a Bot and invite your friends to predict WorldCup, Euro, and leage games, and track their results in Google Sheets.
+Google Sheet Telegram bot integration, for predicting association footbal (soccer) games. Create a Bot and invite your friends to predict WorldCup, Euro, and league games, and track their results in Google Sheets.
 
 # Setup
 ## Bot setup
