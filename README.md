@@ -7,12 +7,26 @@ Google Sheet Telegram bot integration, for predicting WorldCup 2018 games. Creat
 2. Define two commands for your bot: /list, /help.
 
 ## Spreadsheet setup
-1. Create a new spreadsheet in Google Sheets. Create two sheets, and name them Results and ActiveGames.
-2. Results sheet would be automatically filled. You need to fill the ActiveGames sheet with the games you want the user to predict. It should have three columns. First column should be a command, starting with **/**. Second column is the name of the first team and third column is the name of the second team. For example:
+1. Create a new spreadsheet in Google Sheets. Create four sheets:
+  a. Results
+  b. ActiveGames
+  c. Unregistered
+  d. Users 
+2. You need to fill the ActiveGames sheet with the games you want the user to predict. It should have four columns. First column should be a command, starting with **/**. Second column is the name of the first team and third column is the name of the second team. The fourth column should be set to `TRUE` if it is a knockout game. Otherwise, it should be set to `FALSE` or left empty. For example, the row below defines a knockout game:
 
-| A           | B    | C      |
-| ----------- | ---- | ------ |
-| /IranSpain  | Iran | Spain  |
+| A           | B    | C      | D    | 
+| ----------- | ---- | ------ | ---- |
+| /IranSpain  | Iran | Spain  | TRUE |
+
+While the row below defines a normal (e.g. group level) game.
+
+| A           | B    | C      | D    | 
+| ----------- | ---- | ------ | ---- |
+| /IranSpain  | Iran | Spain  |      |
+
+3. In the `Users` sheet, add the Telegram ID of the users you want to allow to participate in the game in column A. Note that `Unregistered` sheet will contain a list of Telegram IDs and names of all user who try to interact with the bot but are not registerd in `Users` sheet. You can use the Telegram IDs in `Unregistered` sheet (column A) to register a user.
+
+Results sheet would be automatically filled when users interact with the bot.
 
 ### Code setup
 Perform the following in the spreadsheet you created in the above steps:
