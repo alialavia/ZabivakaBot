@@ -24,9 +24,9 @@ While the row below defines a normal (e.g. group level) game.
 | ----------- | ---- | ------ | ---- |
 | /IranSpain  | Iran | Spain  |      |
 
-3. In the `Users` sheet, add the Telegram ID of the users you want to allow to participate in the game in column A. Note that `Unregistered` sheet will contain a list of Telegram IDs and names of all user who try to interact with the bot but are not registerd in `Users` sheet. You can use the Telegram IDs in `Unregistered` sheet (column A) to register a user.
+3. In the `Users` sheet, add the Telegram ID of the users you want to allow to participate in the game in column A. Note that the `Unregistered` sheet will contain a list of Telegram IDs and names of all the users who try to interact with the bot but are not registerd in `Users` sheet. You can use the Telegram IDs in `Unregistered` sheet (column A) to register a user in `Users` sheet.
 
-Results sheet would be automatically filled when users interact with the bot.
+`Results` sheet would be automatically filled when users interact with the bot.
 
 ### Code setup
 Perform the following in the spreadsheet you created in the above steps:
