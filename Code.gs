@@ -152,7 +152,7 @@ function recordResult(id, stateParts)
 }
 /* MAIN */
 function showHelp() {
-  return "برای دیدن فهرست بازیها /list را تایپ کنید.";
+  return "Send /list to see the list of games.";
 }
 
 function stateUpdated(id, state) {
@@ -188,23 +188,23 @@ function stateUpdated(id, state) {
               var t1 = oldResult.getCell(1, 1).getValue();
               var t2 = oldResult.getCell(1, 2).getValue();
               var t3 = parseInt(oldResult.getCell(1, 3).getValue());
-              sendText(id, "پیش بینی قبلی شما برای  " + game.team1 + ": " + t1);
-              sendText(id, "پیش بینی قبلی شما برای  " + game.team2 + ": " + t2);
+              sendText(id, "You previus prediction  " + game.team1 + ": " + t1);
+              sendText(id, "You previus prediction  " + game.team2 + ": " + t2);
               if (t3 != 0)
-                sendText(id, "برنده: " + ( t3 == 1 ? game.team1 : game.team2) );
+                sendText(id, "Winner: " + ( t3 == 1 ? game.team1 : game.team2) );
 
             }
-            sendText(id, "تعداد گلهای " + game.team1 + " را وارد کنید");
+            sendText(id, "Enter " + game.team1 + " goals.");
             break;
           case 2: 
-            sendText(id, "تعداد گلهای " + game.team2 + " را وارد کنید");
+            sendText(id, "Enter " + game.team2 + " goals.");
             break;
           case 3:
-            sendText(id, "پیش بینی شما ثبت شد:" + "\n" + game.team1 + ":" + stateParts[1] + " - " + game.team2 + ":" + stateParts[2]);
+            sendText(id, "Your prediction is registered: " + "\n" + game.team1 + ":" + stateParts[1] + " - " + game.team2 + ":" + stateParts[2]);
             var score1 = parseInt(stateParts[1]), 
                 score2 = parseInt(stateParts[2]);
             if (game.knockOut && (score1 == score2))
-              sendText(id, "تیم برنده را انتخاب کنید. برای "  + game.team1 + " عدد ۱ و برای " + game.team2 + " عدد ۲ را ارسال کنید");
+              sendText(id, "Select the winner. For "  + game.team1 + " send 1 and for " + game.team2 + " send 2.");
             else { 
               if (score1 > score2)
                 stateParts.push(1);
@@ -218,7 +218,7 @@ function stateUpdated(id, state) {
             }
             break;
           case 4:
-            sendText(id, "پیش بینی شما ثبت شد. برنده: " + (parseInt(stateParts[3]) == 1 ? game.team1 : game.team2) );
+            sendText(id, "Your prediction is registered. Winner: " + (parseInt(stateParts[3]) == 1 ? game.team1 : game.team2) );
             recordResult(id, stateParts);
             setState(id, null, null);
             break;
@@ -246,7 +246,7 @@ function doPost(e) {
   
   if (!isUserRegistered(id))
   {
-    sendText(id, "شماره ی شما در سیستم ثبت نشده و اجازه ی استفاده از این بات را ندارید. جهت ثبت نام با ادمین گروه تماس بگیرید.");
+    sendText(id, "You are not registered in the system. Please contact the admin.");
     SpreadsheetApp.openById(ssId).getSheetByName("Unregistered").appendRow([id, name]);      
      
     return HtmlService.createHtmlOutput();
@@ -262,7 +262,7 @@ function doPost(e) {
   // If not a command, it must be a number
   if (!sanityCheck(text))
   {
-    sendText(id, "لطفا یک عدد مثبت لاتین وارد کنید. برای دیدن فهرست بازیها از /list استفاده کنید.");
+    sendText(id, "Please enter a positive number. Use `/list` to see a list of games.");
     return HtmlService.createHtmlOutput();
   }
   // we just concate the number to the previous state
@@ -272,7 +272,7 @@ function doPost(e) {
   // A non command received without a state is invalid. Do nothing.
   if (state == null)
   {
-    sendText(id, "لطفا ابتدا از لیست بازی ها یکی را انتخاب کنید..");
+    sendText(id, "Select a game from the list.");
     return HtmlService.createHtmlOutput();
   }
   setState(id, state+","+text, null);
